@@ -48,7 +48,7 @@ function multiply(a,b) {
 
 // NOW: the tests (using the module pattern still?)
 // ?? HOW would we the QUnit to recognize the test if it's embedded in a Utility piece?
-
+// ? Put the QUnit stuff into a module of its own, a subset of CGMApp like Utility is???
 
 /*
 // Test FAILURE FIRST as a part of writing the tests first (TDD, Test First, Agile programming...)
@@ -62,6 +62,7 @@ test("GottaPass", function(){
 	ok(true, true);
 });
 
+// COMMENT OUT this function to see the green 'all is okay' bar at QUnit top o' page
 // Test an ERROR squaring a number, just to mix it up a bit...
 test("TestAnErrorSquaring", function() {
 	var expected = 44;
@@ -79,11 +80,19 @@ test("TestASquare", function() {
 });
 
 // Test adding two numbers
-test("TestSquare", function() {
+test("TestAdding", function() {
 	var expected = 31;
 	var CGMutil = new CGMApp.Utility();
 	var actual = CGMutil.add(24,7);
 	equal(expected, actual, "Adding two numbers.");
+});
+
+// Test subtracting two numbers
+test("TestSubtract", function() {
+	var expected = 31;
+	var CGMutil = new CGMApp.Utility();
+	var actual = CGMutil.subtract(38,7);
+	equal(expected, actual, "Subtracting two numbers.");
 });
 
 // Now we test a multiply...
@@ -93,6 +102,24 @@ test("Multiply", function() {
 	var actual = CGMutil.multiply(3,8);
 	equal(expected, actual, "Multiply message");
 });
+
+// Now we test a divide...
+test("Divide", function() {
+	var expected = 1.50;
+	var CGMutil = new CGMApp.Utility();
+	var actual = CGMutil.divide(3,2);
+	equal(expected, actual, "Divide message");
+});
+
+// COMMENT OUT this function to see the green 'all is okay' bar at QUnit top o' page
+// Test a divide by zero just to see what it looks like.....
+test("The Impossible Divide", function() {
+	var expected = 9999;
+	var CGMutil = new CGMApp.Utility();
+	var actual = CGMutil.divide(3,0);
+	equal(expected, actual, "Impossible Divide message");
+});
+
 
 
 
